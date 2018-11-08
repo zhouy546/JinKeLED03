@@ -26,14 +26,15 @@ public class NodeCtr : ICtr {
 
     private void OnEnable()
     {
+
         DealWithUDPMessage.ToDefaultScene += showMainImage;
         DealWithUDPMessage.ToLogoWell += HideAllImage;
         DealWithUDPMessage.ToScreenProtect += HideAllImage;
         DealWithUDPMessage.ToIntro += HideAllImage;
         DealWithUDPMessage.ToStrategy += HideAllImage;
 
-
-
+        DefaultNodesCtr.HideMainPic += hideMainPic;
+        DefaultNodesCtr.ShowMainPic += showMainImage;
     }
 
     private void OnDisable()
@@ -43,12 +44,23 @@ public class NodeCtr : ICtr {
         DealWithUDPMessage.ToScreenProtect -= HideAllImage;
         DealWithUDPMessage.ToIntro -= HideAllImage;
         DealWithUDPMessage.ToStrategy -= HideAllImage;
+
+        DefaultNodesCtr.HideMainPic -= hideMainPic;
+        DefaultNodesCtr.ShowMainPic -= showMainImage;
     }
 
 
     void Update () {
 
 	}
+
+    public void ShowDescription() {
+        ShowOne(ctrs[1]);
+    }
+
+    private void hideMainPic() {
+        HideOne(ctrs[0]);
+    }
 
     private void showMainImage() {
         ShowOne(ctrs[0]);
@@ -86,7 +98,17 @@ public class NodeCtr : ICtr {
                 ctrs[i].HideAll();
             }
         }
-        
+    }
+
+    public override void HideOne(ICtr ctr)
+    {
+        for (int i = 0; i < ctrs.Count; i++)
+        {
+            if (i == ctrs.IndexOf(ctr))
+            {
+                ctrs[i].HideAll();
+            }
+        }
     }
 
 }

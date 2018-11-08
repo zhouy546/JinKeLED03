@@ -49,12 +49,24 @@ public class ICtr : MonoBehaviour {
 
     }
 
+    public virtual void HideOne(ICtr ctr)
+    {
+
+    }
+
+
     public virtual void PlayVideo(string str) {
 
     }
 
 
     public virtual void StopVideo() {
+
+    }
+
+    public virtual void ToggleMainPic(bool b, List<NodeCtr> nodeCtrs)
+    {
+
 
     }
     //public void InteractionToggle(bool b)

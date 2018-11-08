@@ -1,4 +1,5 @@
-﻿//*********************❤*********************
+﻿
+//*********************❤*********************
 // 
 // 文件名（File Name）：	DealWithUDPMessage.cs
 // 
@@ -30,6 +31,10 @@ public class DealWithUDPMessage : MonoBehaviour {
     // public static char[] sliceStr;
     private Vector3 CamRotation;
 
+    private static bool isInDefaultScreen,isInLogoWell,isInIntro,isInStrategy;
+    private static bool isInScreenProtect=true;
+
+
     //public LogoWellCtr logoWellCtr;
     //private bool enterTrigger, exitTrigger;
     /// <summary>
@@ -44,8 +49,62 @@ public class DealWithUDPMessage : MonoBehaviour {
 
             Debug.Log(dataTest);
 
-          
 
+            if (dataTest == "10000") {
+                toScreenProtect();
+            }
+            else if (int.Parse(dataTest) >= 10001 && int.Parse(dataTest) <= 10007)
+            {//项目介绍
+                toDefaultScene();
+                if (dataTest == "10001")
+                {
+                    OverriderCameraMove.instance.Go(0, ValueSheet.ID_Node_keyValuePairs);
+                }
+                else if (dataTest == "10002")
+                {
+                    OverriderCameraMove.instance.Go(1, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10003")
+                {
+                    OverriderCameraMove.instance.Go(2, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10004")
+                {
+                    OverriderCameraMove.instance.Go(3, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10005")
+                {
+                    OverriderCameraMove.instance.Go(4, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10006")
+                {
+                    OverriderCameraMove.instance.Go(5, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10007")
+                {
+                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+            }
+
+            else if (int.Parse(dataTest) >= 10008 && int.Parse(dataTest) <= 10009) {//公司介绍
+                toIntro();
+                if (dataTest == "10008")
+                {
+
+                }
+                else if (dataTest == "10009") {
+
+                }
+            }
+            else if (dataTest == "10010") {
+                toLogoWell();
+            }
 
 
         }
@@ -81,25 +140,50 @@ public class DealWithUDPMessage : MonoBehaviour {
     }
 
     public static void toDefaultScene() {
-        ToDefaultScene?.Invoke();
+        if (!isInDefaultScreen) {
+            Debug.Log("去项目集锦");
+            ToDefaultScene?.Invoke();
+            isInDefaultScreen = true;
+            isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = false;
+        }
     }
 
     public static void toLogoWell()
     {
-        ToLogoWell?.Invoke();
+        if (!isInLogoWell)
+        {
+            ToLogoWell?.Invoke();
+            isInLogoWell = true;
+            isInDefaultScreen = isInIntro = isInStrategy = isInScreenProtect = false;
+        }
     }
 
     public static void toIntro()
     {
-        ToIntro?.Invoke();
+        if (!isInIntro)
+        {
+            ToIntro?.Invoke();
+            isInIntro = true;
+            isInDefaultScreen = isInLogoWell = isInStrategy = isInScreenProtect = false;
+        }
     }
     public static void toStrategy()
     {
-        ToStrategy?.Invoke();
+        if (!isInStrategy)
+        {
+            ToStrategy?.Invoke();
+            isInStrategy = true;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInScreenProtect = false;
+        }
     }
     public static void toScreenProtect()
     {
-        ToScreenProtect?.Invoke();
+        if (!isInScreenProtect) {
+            Debug.Log("去屏保");
+            ToScreenProtect?.Invoke();
+            isInScreenProtect = true;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = false;
+        }
     }
 
 }
