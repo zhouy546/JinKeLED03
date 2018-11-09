@@ -446,6 +446,8 @@ MonoBehaviour:
   - {fileID: 114515075145541458}
   - {fileID: 114272152140772358}
   ID: 
+  MainImage: {fileID: 114634617676817730}
+  DescriptionImage: {fileID: 114490989938925378}
 --- !u!114 &114851386254022062
 MonoBehaviour:
   m_ObjectHideFlags: 1

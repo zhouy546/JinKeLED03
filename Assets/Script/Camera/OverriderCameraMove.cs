@@ -25,18 +25,52 @@ public class OverriderCameraMove : MonoBehaviour {
     public void OnEnable()
     {
         DealWithUDPMessage.ToScreenProtect += toScreeanProtect;
+        DealWithUDPMessage.ToYeWuMoXing += toYeWuMoXing;
+        DealWithUDPMessage.ToMatching += toMatching;
+        DealWithUDPMessage.ToCo += toCo;
+        //DealWithUDPMessage.ToIntro += toIntro;
     }
 
     public void OnDisable()
     {
+
         DealWithUDPMessage.ToScreenProtect -= toScreeanProtect;
+        DealWithUDPMessage.ToYeWuMoXing -= toYeWuMoXing;
+        DealWithUDPMessage.ToMatching -= toMatching;
+        DealWithUDPMessage.ToMatching -= toCo;
     }
 
+    private void toMatching() {
+        RotateTo(Vector3.zero);
+
+        MoveTo(MatchingNodeCtr.instance.CameratransformPos.position, .5f);
+    }
+
+    private void toCo() {
+        RotateTo(Vector3.zero);
+
+        MoveTo(CoNodeCtr.instance.CameratransformPos.position, .5f);
+    }
+
+    private void toYeWuMoXing() {
+        RotateTo(Vector3.zero);
+        MoveTo(YeWuMoXingNodeCtr.instance.CameratransformPos.position, .5f);
+    }
 
     private void toScreeanProtect() {
         RotateTo(Vector3.zero);
-        MoveTo(new Vector3(0, 15.3f, -30), 1f);
-    } 
+        MoveTo(ScreenProtectCtr.instance.CameratransformPos.position,.5f);
+    }
+
+    private void toIntro()
+    {
+        //RotateTo(Vector3.zero);
+        //MoveTo(ScreenProtectCtr.instance.CameratransformPos.position, .5f);
+    }
+    public void toIntro(int id) {
+        RotateTo(Vector3.zero);
+        MoveTo(IntroNodeCtr.instance.GetTargetCamPos(id), .5f);
+    }
 
     public void Go(int ID, Dictionary<int, GameObject> ID_Node_keyValuePairs)
     {

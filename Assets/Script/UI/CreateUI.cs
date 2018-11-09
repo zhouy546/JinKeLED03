@@ -9,13 +9,22 @@ public class CreateUI : MonoBehaviour {
     public GameObject NodeR_Default;
 
     public GameObject SunNode_Intro;
+    public GameObject SunNode_YeWuMoXing;
+    public GameObject SunNode_Co;
+    public GameObject SunNode_Matching;
+
     public GameObject SunNode_Strategy;
+
+
 
 
     // Use this for initialization
     public void Initialization() {
         CreateDefaultNode();
-
+        CreateIntroNode();
+        CreateYeWuMoXingNode();
+        CreateCoNode();
+        CreateMatchinNode();
     }
 
 
@@ -37,6 +46,25 @@ public class CreateUI : MonoBehaviour {
         }
     }
 
+    private void CreateIntroNode() {
+        CreateObject<IntroNodeCtr>(SunNode_Intro, 0, Vector3.zero, parent[1], ValueSheet.introNodeCtr);
+    }
+
+    private void CreateYeWuMoXingNode()
+    {
+        CreateObject<YeWuMoXingNodeCtr>(SunNode_YeWuMoXing, 0, Vector3.zero, parent[2], ValueSheet.yeWuMoXingNodeCtr);
+    }
+
+    private void CreateCoNode()
+    {
+        CreateObject<CoNodeCtr>(SunNode_Co, 0, Vector3.zero, parent[3], ValueSheet.coNodeCtr);
+    }
+
+    private void CreateMatchinNode()
+    {
+        CreateObject<MatchingNodeCtr>(SunNode_Matching, 0, Vector3.zero, parent[4], ValueSheet.matchingNodeCtr);
+    }
+
     private void CreateObject<t>(GameObject g, int i, Vector3 pos, GameObject parent, List<t> nodeCtr)
     {
 
@@ -48,7 +76,7 @@ public class CreateUI : MonoBehaviour {
 
         MgameObject.transform.SetParent(parent.transform);
 
-        MgameObject.transform.position = pos;
+        MgameObject.transform.localPosition = pos;
 
         MgameObject.transform.rotation = Quaternion.identity;
 

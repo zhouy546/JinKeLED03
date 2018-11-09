@@ -8,8 +8,9 @@ public class Ini : MonoBehaviour {
     private OverriderCameraMove OverridecameraMover;
     private DealWithUDPMessage dealWithUDPMessage;
     private CreateUI createUI;
+    private ScreenProtectCtr screenProtectCtr;
 
-    private List<Sprite> MainUIsprites = new List<Sprite>();
+
 
     private void  Start() {
          StartCoroutine(initialization());
@@ -27,11 +28,15 @@ public class Ini : MonoBehaviour {
 
         createUI = FindObjectOfType<CreateUI>();
 
+        screenProtectCtr = FindObjectOfType<ScreenProtectCtr>();
+
         yield return StartCoroutine(readJson.initialization());
 
         yield return StartCoroutine(ReadAssetImage());
 
         yield return StartCoroutine(dealWithUDPMessage.Initialization());
+
+        screenProtectCtr.initialization();
 
         createUI.Initialization();
 
@@ -43,6 +48,14 @@ public class Ini : MonoBehaviour {
         yield return StartCoroutine(ReadMainUIsprites());
 
         yield return StartCoroutine(ReadDescription());
+
+        yield return StartCoroutine(ReadIntroUIsprites());
+
+        yield return StartCoroutine(ReadYeWuMoXingUIsprites());
+
+        yield return StartCoroutine(ReadCoNodeUIsprites());
+
+        yield return StartCoroutine(ReadMatchingUIsprites());
     }
 
 
@@ -66,7 +79,31 @@ public class Ini : MonoBehaviour {
     IEnumerator ReadMainUIsprites()
     {
         string path = "/UI/MainPage/";
-        yield return GetSpriteListFromStreamAsset(path, "jpg", MainUIsprites);
+        yield return GetSpriteListFromStreamAsset(path, "jpg", ValueSheet.MainUIsprites);
+    }
+
+    IEnumerator ReadIntroUIsprites()
+    {
+        string path = "/UI/Intro/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.IntroUIsprites);
+    }
+
+    IEnumerator ReadYeWuMoXingUIsprites()
+    {
+        string path = "/UI/YeWuMoXing/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.YeWuMoXingUIsprites);
+    }
+
+    IEnumerator ReadCoNodeUIsprites()
+    {
+        string path = "/UI/Co/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.CoNodeUIsprites);
+    }
+
+    IEnumerator ReadMatchingUIsprites()
+    {
+        string path = "/UI/Matching/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.MatchingUIsprites);
     }
 
     IEnumerator GetSpriteListFromStreamAsset(string path, string suffix, List<Sprite> sprites)

@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NodeCtr : ICtr {
     public Transform cameraSetTrans;
     public List<ICtr> ctrs = new List<ICtr>();
     public string ID;
+
+    public Image MainImage;
+    public Image DescriptionImage;
 
     public void Start()
     {
@@ -20,9 +24,10 @@ public class NodeCtr : ICtr {
         {
             item.initialization();
         }
-      
-           
-	}
+
+        SetUpImage();
+
+    }
 
     private void OnEnable()
     {
@@ -32,6 +37,9 @@ public class NodeCtr : ICtr {
         DealWithUDPMessage.ToScreenProtect += HideAllImage;
         DealWithUDPMessage.ToIntro += HideAllImage;
         DealWithUDPMessage.ToStrategy += HideAllImage;
+        DealWithUDPMessage.ToYeWuMoXing += HideAllImage;
+        DealWithUDPMessage.ToCo += HideAllImage;
+        DealWithUDPMessage.ToMatching += HideAllImage;
 
         DefaultNodesCtr.HideMainPic += hideMainPic;
         DefaultNodesCtr.ShowMainPic += showMainImage;
@@ -44,6 +52,9 @@ public class NodeCtr : ICtr {
         DealWithUDPMessage.ToScreenProtect -= HideAllImage;
         DealWithUDPMessage.ToIntro -= HideAllImage;
         DealWithUDPMessage.ToStrategy -= HideAllImage;
+        DealWithUDPMessage.ToYeWuMoXing -= HideAllImage;
+        DealWithUDPMessage.ToCo -= HideAllImage;
+        DealWithUDPMessage.ToMatching -= HideAllImage;
 
         DefaultNodesCtr.HideMainPic -= hideMainPic;
         DefaultNodesCtr.ShowMainPic -= showMainImage;
@@ -109,6 +120,14 @@ public class NodeCtr : ICtr {
                 ctrs[i].HideAll();
             }
         }
+    }
+
+    private void SetUpImage()
+    {
+
+        MainImage.sprite = ValueSheet.MainUIsprites[int.Parse(ID)];
+
+        DescriptionImage.sprite = ValueSheet.DescriptionkeyValuePairs[int.Parse(ID)][0];
     }
 
 }

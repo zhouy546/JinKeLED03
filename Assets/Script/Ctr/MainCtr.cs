@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MainCtr : ICtr {
     public List<ICtr> ctrs = new List<ICtr>();
-
+    public static MainCtr instance;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,10 @@ public class MainCtr : ICtr {
         foreach (var item in ctrs)
         {
             item.initialization();
+        }
+
+        if (instance == null) {
+            instance = this;
         }
     }
 
