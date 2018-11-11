@@ -71,13 +71,13 @@ public class ReadJson : MonoBehaviour {
         }
 
 
-        for (int i = 0; i < itemDate["Setup"].Count; i++)
-        {
-            ValueSheet.BGMVolume = float.Parse(itemDate["Setup"][i]["BGMVolume"].ToString());//get id;        
-        }
 
+ 
 
-        //setupUI(bigTitle);
+        ValueSheet.BGMVolume = float.Parse(itemDate["Setup"][0]["BGMVolume"].ToString());
+        ValueSheet.MainVideoUrl =itemDate["Setup"][0]["MainVideUrl"].ToString();
+
+      
 
     }
 

@@ -9,7 +9,9 @@ public class Ini : MonoBehaviour {
     private DealWithUDPMessage dealWithUDPMessage;
     private CreateUI createUI;
     private ScreenProtectCtr screenProtectCtr;
+    private ChinaMapNodeCtr chinaMapNodeCtr;
 
+    private SoundMangager soundMangager;
 
 
     private void  Start() {
@@ -30,15 +32,23 @@ public class Ini : MonoBehaviour {
 
         screenProtectCtr = FindObjectOfType<ScreenProtectCtr>();
 
+        chinaMapNodeCtr = FindObjectOfType<ChinaMapNodeCtr>();
+
+        soundMangager = FindObjectOfType<SoundMangager>();
+
         yield return StartCoroutine(readJson.initialization());
 
         yield return StartCoroutine(ReadAssetImage());
 
         yield return StartCoroutine(dealWithUDPMessage.Initialization());
 
+        soundMangager.initialization();
+
         screenProtectCtr.initialization();
 
         createUI.Initialization();
+
+        chinaMapNodeCtr.initialization();
 
         OverridecameraMover.initializtion(new Vector3(0, 15.3f, 300f), new Vector3(0, 15.3f, -30f));
     }
@@ -56,6 +66,10 @@ public class Ini : MonoBehaviour {
         yield return StartCoroutine(ReadCoNodeUIsprites());
 
         yield return StartCoroutine(ReadMatchingUIsprites());
+
+        yield return StartCoroutine(ReadStrategyUIsprites());
+
+        yield return StartCoroutine(ReadChinaMapUIsprites());
     }
 
 
@@ -104,6 +118,18 @@ public class Ini : MonoBehaviour {
     {
         string path = "/UI/Matching/";
         yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.MatchingUIsprites);
+    }
+
+    IEnumerator ReadStrategyUIsprites()
+    {
+        string path = "/UI/Strategy/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.StrategyUIsprites);
+    }
+
+    IEnumerator ReadChinaMapUIsprites()
+    {
+        string path = "/UI/ChinaMap/";
+        yield return GetSpriteListFromStreamAsset(path, "png", ValueSheet.ChinaMapUIsprites);
     }
 
     IEnumerator GetSpriteListFromStreamAsset(string path, string suffix, List<Sprite> sprites)

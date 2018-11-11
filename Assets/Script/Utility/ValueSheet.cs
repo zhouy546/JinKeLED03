@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ValueSheet : MonoBehaviour {
-    public static string screenProtect = "屏幕保护.mp4";
+    public static string MainVideoUrl;
 
-    public static string CultureAndECON = "商业·文化.mp4";
 
-    public static string ProjcetHighLight = "浚县沙盘.mp4";
-
-    public static string Gongyi = "社会公益.mp4";
-
-    public static string Co = "合作伙伴.mp4";
 
     public static float BGMVolume = 0;
 
@@ -36,11 +30,15 @@ public class ValueSheet : MonoBehaviour {
 
     public static List<Sprite> MatchingUIsprites = new List<Sprite>();
 
+    public static List<Sprite> StrategyUIsprites = new List<Sprite>();
+
+    public static List<Sprite> ChinaMapUIsprites = new List<Sprite>();
+
     public static List<Node> NodeList = new List<Node>();
 
-    public static List<Node> Intro_NodeList = new List<Node>();
+    public static List<Node> Intro_NodeList = new List<Node>();//弃用
 
-    public static List<Node> strategy_NodeList = new List<Node>();
+    public static List<Node> strategy_NodeList = new List<Node>();//弃用
 
 
 
@@ -56,8 +54,9 @@ public class ValueSheet : MonoBehaviour {
 
     public static List<MatchingNodeCtr> matchingNodeCtr = new List<MatchingNodeCtr>();
 
-    public static List<NodeCtr_Strategy> NodeCtr_Strategy = new List<NodeCtr_Strategy>();
- 
+    public static List<StrategyNodeCtr> strategyNodeCtr = new List<StrategyNodeCtr>();
+
+    public static List<ChinaMapNodeCtr> chinaMapNodeCtr = new List<ChinaMapNodeCtr>();
 
     public static List<NodeCtr> CurrentNodeCtr = new List<NodeCtr>();
     public static bool IsInMainMenu = true;

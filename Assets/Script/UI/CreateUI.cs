@@ -25,6 +25,7 @@ public class CreateUI : MonoBehaviour {
         CreateYeWuMoXingNode();
         CreateCoNode();
         CreateMatchinNode();
+        CreateStrategyNode();
     }
 
 
@@ -63,6 +64,11 @@ public class CreateUI : MonoBehaviour {
     private void CreateMatchinNode()
     {
         CreateObject<MatchingNodeCtr>(SunNode_Matching, 0, Vector3.zero, parent[4], ValueSheet.matchingNodeCtr);
+    }
+
+    private void CreateStrategyNode()
+    {
+        CreateObject<StrategyNodeCtr>(SunNode_Strategy, 0, Vector3.zero, parent[5], ValueSheet.strategyNodeCtr);
     }
 
     private void CreateObject<t>(GameObject g, int i, Vector3 pos, GameObject parent, List<t> nodeCtr)

@@ -28,6 +28,11 @@ public class OverriderCameraMove : MonoBehaviour {
         DealWithUDPMessage.ToYeWuMoXing += toYeWuMoXing;
         DealWithUDPMessage.ToMatching += toMatching;
         DealWithUDPMessage.ToCo += toCo;
+        DealWithUDPMessage.ToChinaMap += toChinaMap;
+        DealWithUDPMessage.ToLogoWell += toLogoWell;
+
+
+
         //DealWithUDPMessage.ToIntro += toIntro;
     }
 
@@ -37,7 +42,28 @@ public class OverriderCameraMove : MonoBehaviour {
         DealWithUDPMessage.ToScreenProtect -= toScreeanProtect;
         DealWithUDPMessage.ToYeWuMoXing -= toYeWuMoXing;
         DealWithUDPMessage.ToMatching -= toMatching;
-        DealWithUDPMessage.ToMatching -= toCo;
+        DealWithUDPMessage.ToCo -= toCo;
+        DealWithUDPMessage.ToChinaMap -= toChinaMap;
+        DealWithUDPMessage.ToLogoWell -= toLogoWell;
+    }
+
+    private void toLogoWell()
+    {
+        RotateTo(Vector3.zero);
+        MoveTo(LogoWellCtr.instance.CameraTransPos.position, .5f);
+      
+    }
+
+    private void toChinaMap() {
+        RotateTo(Vector3.zero);
+        MoveTo(ValueSheet.chinaMapNodeCtr[0].CameratransformPos.position, .5f);
+    }
+
+    public void toStrategy(int id) {
+
+        ValueSheet.strategyNodeCtr[0].ShowOne(ValueSheet.strategyNodeCtr[0].ctrs[id]);
+        RotateTo(Vector3.zero);
+        MoveTo(ValueSheet.strategyNodeCtr[0].GetPos(id), .5f);
     }
 
     private void toMatching() {
@@ -194,6 +220,7 @@ public class OverriderCameraMove : MonoBehaviour {
 
     public void MoveTo(Vector3 pos, float time, Action action = null)
     {
+        SoundMangager.instance.GoThrough();
         //  stopCameraFloating();
         //Debug.Log("Move TO POS"+pos.ToString());
         LeanTween.move(this.gameObject, pos, time).setOnUpdate(delegate (Vector3 v) {

@@ -40,6 +40,8 @@ public class NodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing += HideAllImage;
         DealWithUDPMessage.ToCo += HideAllImage;
         DealWithUDPMessage.ToMatching += HideAllImage;
+        DealWithUDPMessage.ToChinaMap += HideAllImage;
+        DealWithUDPMessage.ToMainVideo += HideAllImage;
 
         DefaultNodesCtr.HideMainPic += hideMainPic;
         DefaultNodesCtr.ShowMainPic += showMainImage;
@@ -55,6 +57,8 @@ public class NodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing -= HideAllImage;
         DealWithUDPMessage.ToCo -= HideAllImage;
         DealWithUDPMessage.ToMatching -= HideAllImage;
+        DealWithUDPMessage.ToChinaMap -= HideAllImage;
+        DealWithUDPMessage.ToMainVideo -= HideAllImage;
 
         DefaultNodesCtr.HideMainPic -= hideMainPic;
         DefaultNodesCtr.ShowMainPic -= showMainImage;

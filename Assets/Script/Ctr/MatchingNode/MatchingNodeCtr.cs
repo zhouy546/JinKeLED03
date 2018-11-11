@@ -27,6 +27,8 @@ public class MatchingNodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing += hide;
         DealWithUDPMessage.ToCo += hide;
         DealWithUDPMessage.ToMatching += show;
+        DealWithUDPMessage.ToChinaMap += hide;
+        DealWithUDPMessage.ToMainVideo += hide;
 
         DefaultNodesCtr.HideMainPic += hide;
         DefaultNodesCtr.ShowMainPic += hide;
@@ -43,6 +45,8 @@ public class MatchingNodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing -= hide;
         DealWithUDPMessage.ToCo -= hide;
         DealWithUDPMessage.ToMatching -= show;
+        DealWithUDPMessage.ToChinaMap -= hide;
+        DealWithUDPMessage.ToMainVideo -= hide;
 
 
         DefaultNodesCtr.HideMainPic -= hide;

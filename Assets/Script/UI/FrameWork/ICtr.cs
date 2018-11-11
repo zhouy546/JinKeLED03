@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ICtr : MonoBehaviour {
     public List<NImage> AllNimages = new List<NImage>();
@@ -68,6 +69,15 @@ public class ICtr : MonoBehaviour {
     {
 
 
+    }
+
+    public virtual Transform GetCameraPos() {
+       
+        return this.transform;
+    }
+
+    public virtual Image GetImage() {
+        return this.GetComponent<Image>();
     }
     //public void InteractionToggle(bool b)
     //{

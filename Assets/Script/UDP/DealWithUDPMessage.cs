@@ -27,6 +27,9 @@ public class DealWithUDPMessage : MonoBehaviour {
     public static Action ToYeWuMoXing;
     public static Action ToCo;
     public static Action ToMatching;
+    public static Action ToChinaMap;
+    public static Action ToMainVideo;
+
 
 
     public static DealWithUDPMessage instance;
@@ -35,7 +38,7 @@ public class DealWithUDPMessage : MonoBehaviour {
     // public static char[] sliceStr;
     private Vector3 CamRotation;
 
-    private static bool isInDefaultScreen,isInLogoWell,isInIntro,isInStrategy,isInYeWuMoXing,isInCo,isInMatching;
+    private static bool isInDefaultScreen,isInLogoWell,isInIntro,isInStrategy,isInYeWuMoXing,isInCo,isInMatching,isInChinaMap;
     private static bool isInScreenProtect=true;
 
 
@@ -122,10 +125,41 @@ public class DealWithUDPMessage : MonoBehaviour {
             {
                 toCo();
             }
-            else if (dataTest == "10013") {
+            else if (dataTest == "10013")
+            {
                 toMatching();
             }
-
+            else if (int.Parse(dataTest) >= 10014 && int.Parse(dataTest) <= 10017)
+            {//策略
+                toStrategy();
+                if (dataTest == "10014")
+                {
+                    OverriderCameraMove.instance.toStrategy(0);
+                }
+                else if (dataTest == "10015")
+                {
+                    OverriderCameraMove.instance.toStrategy(1);
+                }
+                else if (dataTest == "10016")
+                {
+                    OverriderCameraMove.instance.toStrategy(2);
+                }
+                else if (dataTest == "10017")
+                {
+                    OverriderCameraMove.instance.toStrategy(3);
+                }
+            }
+            else if (dataTest == "10018")
+            {
+                toChinaMap();
+            }
+            else if (dataTest == "10019")
+            {
+                toLogoWell();
+            }
+            else if (dataTest == "10020") {
+                ToMainVideo();
+            }
 
         }
 
@@ -164,7 +198,7 @@ public class DealWithUDPMessage : MonoBehaviour {
             Debug.Log("去项目集锦");
             ToDefaultScene?.Invoke();
             isInDefaultScreen = true;
-            isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = false;
+            isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = isInChinaMap = false;
         }
     }
 
@@ -174,7 +208,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToLogoWell?.Invoke();
             isInLogoWell = true;
-            isInDefaultScreen = isInIntro = isInStrategy = isInScreenProtect= isInYeWuMoXing= isInCo = isInMatching = false;
+            isInDefaultScreen = isInIntro = isInStrategy = isInScreenProtect= isInYeWuMoXing= isInCo = isInMatching = isInChinaMap = false;
         }
     }
 
@@ -184,7 +218,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToIntro?.Invoke();
             isInIntro = true;
-            isInDefaultScreen = isInLogoWell = isInStrategy = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = false;
+            isInDefaultScreen = isInLogoWell = isInStrategy = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = isInChinaMap = false;
         }
     }
     public static void toStrategy()
@@ -193,7 +227,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToStrategy?.Invoke();
             isInStrategy = true;
-            isInDefaultScreen = isInLogoWell = isInIntro = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = false;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInScreenProtect = isInYeWuMoXing= isInCo = isInMatching = isInChinaMap = false;
         }
     }
     public static void toScreenProtect()
@@ -201,7 +235,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         if (!isInScreenProtect) {
             ToScreenProtect?.Invoke();
             isInScreenProtect = true;
-            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInYeWuMoXing= isInCo = isInMatching = false;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInYeWuMoXing= isInCo = isInMatching = isInChinaMap = false;
         }
     }
 
@@ -211,7 +245,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToYeWuMoXing?.Invoke();
             isInYeWuMoXing = true;
-            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInCo= isInMatching = false;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInCo= isInMatching = isInChinaMap = false;
         }
     }
 
@@ -221,7 +255,7 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToCo?.Invoke();
             isInCo = true;
-            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect= isInYeWuMoXing = isInMatching = false;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect= isInYeWuMoXing = isInMatching = isInChinaMap = false;
         }
     }
 
@@ -230,8 +264,25 @@ public class DealWithUDPMessage : MonoBehaviour {
         {
             ToMatching?.Invoke();
             isInMatching = true;
-            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing = isInCo = false;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing = isInCo = isInChinaMap = false;
         }
+    }
+
+    public static void toChinaMap() {
+        if (!isInChinaMap) {
+            ToChinaMap?.Invoke();
+            isInChinaMap = true;
+            isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing = isInCo = isInMatching = false;
+        }
+    }
+
+    public static void toMainVideo()
+    {
+
+            ToMainVideo?.Invoke();
+
+        isInChinaMap = isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy = isInScreenProtect = isInYeWuMoXing = isInCo = isInMatching = false;
+
     }
 
 }

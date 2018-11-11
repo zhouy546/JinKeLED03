@@ -29,6 +29,8 @@ public class ScreenProtectCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing += hide;
         DealWithUDPMessage.ToCo += hide;
         DealWithUDPMessage.ToMatching += hide;
+        DealWithUDPMessage.ToChinaMap += hide;
+        DealWithUDPMessage.ToMainVideo += hide;
 
         DefaultNodesCtr.HideMainPic += hide;
         DefaultNodesCtr.ShowMainPic += hide;
@@ -44,6 +46,8 @@ public class ScreenProtectCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing -= hide;
         DealWithUDPMessage.ToCo -= hide;
         DealWithUDPMessage.ToMatching -= hide;
+        DealWithUDPMessage.ToChinaMap -= hide;
+        DealWithUDPMessage.ToMainVideo -= hide;
 
         DefaultNodesCtr.HideMainPic -= hide;
         DefaultNodesCtr.ShowMainPic -= hide;

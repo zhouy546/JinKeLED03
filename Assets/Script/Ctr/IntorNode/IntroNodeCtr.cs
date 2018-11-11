@@ -31,6 +31,8 @@ public class IntroNodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing += introNodesGridCtr.hide;
         DealWithUDPMessage.ToCo += introNodesGridCtr.hide;
         DealWithUDPMessage.ToMatching += introNodesGridCtr.hide;
+        DealWithUDPMessage.ToChinaMap += introNodesGridCtr.hide;
+        DealWithUDPMessage.ToMainVideo +=introNodesGridCtr.hide;
 
         DefaultNodesCtr.HideMainPic += introNodesGridCtr.hide;
         DefaultNodesCtr.ShowMainPic += introNodesGridCtr.hide;
@@ -49,6 +51,8 @@ public class IntroNodeCtr : ICtr {
         DealWithUDPMessage.ToYeWuMoXing -= introNodesGridCtr.hide;
         DealWithUDPMessage.ToCo -= introNodesGridCtr.hide;
         DealWithUDPMessage.ToMatching -=introNodesGridCtr.hide;
+        DealWithUDPMessage.ToChinaMap -= introNodesGridCtr.hide;
+        DealWithUDPMessage.ToMainVideo += introNodesGridCtr.hide;
 
         DefaultNodesCtr.HideMainPic -= introNodesGridCtr.hide;
         DefaultNodesCtr.ShowMainPic -= introNodesGridCtr.hide;
