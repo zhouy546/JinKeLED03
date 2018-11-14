@@ -50,6 +50,11 @@ public class MainVideoNodeCtr : ICtr {
         DefaultNodesCtr.ShowMainPic -= hide;
     }
 
+    public void CheckIsFinish() {
+        Debug.Log("finished");
+        hide();
+    }
+
 
 
 

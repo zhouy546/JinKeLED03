@@ -6,6 +6,8 @@ using UnityEngine;
 public class OverriderCameraMove : MonoBehaviour {
     public static OverriderCameraMove instance;
 
+    public static Action CameraMove;
+
     public int PerviousID;
     public int TargetID;
 
@@ -49,41 +51,47 @@ public class OverriderCameraMove : MonoBehaviour {
 
     private void toLogoWell()
     {
+        cameraMove();
         RotateTo(Vector3.zero);
         MoveTo(LogoWellCtr.instance.CameraTransPos.position, .5f);
       
     }
 
     private void toChinaMap() {
+        cameraMove();
         RotateTo(Vector3.zero);
         MoveTo(ValueSheet.chinaMapNodeCtr[0].CameratransformPos.position, .5f);
     }
 
     public void toStrategy(int id) {
-
-        ValueSheet.strategyNodeCtr[0].ShowOne(ValueSheet.strategyNodeCtr[0].ctrs[id]);
+        cameraMove();
+        //alueSheet.strategyNodeCtr[0].ShowOne(ValueSheet.strategyNodeCtr[0].ctrs[id]);
         RotateTo(Vector3.zero);
         MoveTo(ValueSheet.strategyNodeCtr[0].GetPos(id), .5f);
     }
 
     private void toMatching() {
+        cameraMove();
         RotateTo(Vector3.zero);
 
         MoveTo(MatchingNodeCtr.instance.CameratransformPos.position, .5f);
     }
 
     private void toCo() {
+        cameraMove();
         RotateTo(Vector3.zero);
 
         MoveTo(CoNodeCtr.instance.CameratransformPos.position, .5f);
     }
 
     private void toYeWuMoXing() {
+        cameraMove();
         RotateTo(Vector3.zero);
         MoveTo(YeWuMoXingNodeCtr.instance.CameratransformPos.position, .5f);
     }
 
     private void toScreeanProtect() {
+        cameraMove();
         RotateTo(Vector3.zero);
         MoveTo(ScreenProtectCtr.instance.CameratransformPos.position,.5f);
     }
@@ -94,12 +102,15 @@ public class OverriderCameraMove : MonoBehaviour {
         //MoveTo(ScreenProtectCtr.instance.CameratransformPos.position, .5f);
     }
     public void toIntro(int id) {
+        cameraMove();
         RotateTo(Vector3.zero);
         MoveTo(IntroNodeCtr.instance.GetTargetCamPos(id), .5f);
     }
 
     public void Go(int ID, Dictionary<int, GameObject> ID_Node_keyValuePairs)
     {
+
+        cameraMove();
         LeanTween.cancel(this.gameObject);
 
 
@@ -236,6 +247,10 @@ public class OverriderCameraMove : MonoBehaviour {
     public void RotateTo(Vector3 angle, float time = .5f)
     {
         LeanTween.rotateY(this.gameObject, angle.y, time).setEase(LeanTweenType.notUsed);
+    }
+
+    public static void cameraMove() {
+        CameraMove?.Invoke();
     }
 }
 

@@ -32,7 +32,7 @@ public class IntroNodeCtr : ICtr {
         DealWithUDPMessage.ToCo += introNodesGridCtr.hide;
         DealWithUDPMessage.ToMatching += introNodesGridCtr.hide;
         DealWithUDPMessage.ToChinaMap += introNodesGridCtr.hide;
-        DealWithUDPMessage.ToMainVideo +=introNodesGridCtr.hide;
+       // DealWithUDPMessage.ToMainVideo +=introNodesGridCtr.hide;
 
         DefaultNodesCtr.HideMainPic += introNodesGridCtr.hide;
         DefaultNodesCtr.ShowMainPic += introNodesGridCtr.hide;
@@ -52,7 +52,7 @@ public class IntroNodeCtr : ICtr {
         DealWithUDPMessage.ToCo -= introNodesGridCtr.hide;
         DealWithUDPMessage.ToMatching -=introNodesGridCtr.hide;
         DealWithUDPMessage.ToChinaMap -= introNodesGridCtr.hide;
-        DealWithUDPMessage.ToMainVideo += introNodesGridCtr.hide;
+       // DealWithUDPMessage.ToMainVideo += introNodesGridCtr.hide;
 
         DefaultNodesCtr.HideMainPic -= introNodesGridCtr.hide;
         DefaultNodesCtr.ShowMainPic -= introNodesGridCtr.hide;

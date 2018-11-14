@@ -21,7 +21,7 @@ public class ChinaMapNodeCtr : ICtr {
         DealWithUDPMessage.ToCo += hide;
         DealWithUDPMessage.ToMatching += hide;
         DealWithUDPMessage.ToChinaMap += show;
-        DealWithUDPMessage.ToMainVideo += hide;
+        //DealWithUDPMessage.ToMainVideo += hide;
 
 
         DefaultNodesCtr.HideMainPic += hide;
@@ -40,10 +40,10 @@ public class ChinaMapNodeCtr : ICtr {
         DealWithUDPMessage.ToCo -= hide;
         DealWithUDPMessage.ToMatching -= hide;
         DealWithUDPMessage.ToChinaMap -= show;
-        DealWithUDPMessage.ToMainVideo -= hide;
+       // DealWithUDPMessage.ToMainVideo -= hide;
 
         DefaultNodesCtr.HideMainPic -= hide;
-        DefaultNodesCtr.ShowMainPic -= hide;
+       DefaultNodesCtr.ShowMainPic -= hide;
     }
 
 

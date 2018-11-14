@@ -61,7 +61,7 @@ public class DealWithUDPMessage : MonoBehaviour {
             {
                 toScreenProtect();
             }
-            else if (int.Parse(dataTest) >= 10001 && int.Parse(dataTest) <= 10007)
+            else if (int.Parse(dataTest) >= 10001 && int.Parse(dataTest) <= 10010)
             {//项目介绍
                 toDefaultScene();
                 if (dataTest == "10001")
@@ -98,66 +98,78 @@ public class DealWithUDPMessage : MonoBehaviour {
                     OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
 
                 }
+                else if (dataTest == "10008")
+                {
+                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10009")
+                {
+                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+
+                }
+                else if (dataTest == "10010")
+                {
+                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+
+                }
             }
 
-            else if (int.Parse(dataTest) >= 10008 && int.Parse(dataTest) <= 10009)
+            else if (int.Parse(dataTest) >= 10011 && int.Parse(dataTest) <= 10012)
             {//公司介绍
                 toIntro();
-                if (dataTest == "10008")
+                if (dataTest == "10011")
                 {
                     OverriderCameraMove.instance.toIntro(0);
                 }
-                else if (dataTest == "10009")
+                else if (dataTest == "10012")
                 {
                     OverriderCameraMove.instance.toIntro(1);
                 }
             }
-            else if (dataTest == "10010")
+            else if (dataTest == "10013")
             {
                 toLogoWell();
             }
-            else if (dataTest == "10011")
+            else if (dataTest == "10014")
             {
                 toYeWuMoXing();
             }
 
-            else if (dataTest == "10012")
+            else if (dataTest == "10015")
             {
                 toCo();
             }
-            else if (dataTest == "10013")
+            else if (dataTest == "10016")
             {
                 toMatching();
             }
-            else if (int.Parse(dataTest) >= 10014 && int.Parse(dataTest) <= 10017)
+            else if (int.Parse(dataTest) >= 10017 && int.Parse(dataTest) <= 10020)
             {//策略
                 toStrategy();
-                if (dataTest == "10014")
+                if (dataTest == "10017")
                 {
                     OverriderCameraMove.instance.toStrategy(0);
                 }
-                else if (dataTest == "10015")
+                else if (dataTest == "10018")
                 {
                     OverriderCameraMove.instance.toStrategy(1);
                 }
-                else if (dataTest == "10016")
+                else if (dataTest == "10019")
                 {
                     OverriderCameraMove.instance.toStrategy(2);
                 }
-                else if (dataTest == "10017")
+                else if (dataTest == "10020")
                 {
                     OverriderCameraMove.instance.toStrategy(3);
                 }
             }
-            else if (dataTest == "10018")
+            else if (dataTest == "10021")
             {
                 toChinaMap();
             }
-            else if (dataTest == "10019")
-            {
-                toLogoWell();
-            }
-            else if (dataTest == "10020") {
+
+            else if (dataTest == "10022") {
                 ToMainVideo();
             }
 
