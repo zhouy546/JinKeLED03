@@ -8,6 +8,7 @@ public class ChinaMapMainUiCtr : ICtr {
 
     public Animator animator;
     public Image MainImage;
+    public Image DesImage;
 
     public override void initialization()
     {
@@ -43,6 +44,7 @@ public class ChinaMapMainUiCtr : ICtr {
 
     public void SetupImage() {
         MainImage.sprite = ValueSheet.ChinaMapUIsprites[0];
+        DesImage.sprite = ValueSheet.ChinaMapUIsprites[1];
     }
 
 }

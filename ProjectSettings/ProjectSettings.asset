@@ -647,7 +647,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 2a346b62-d4c2-432a-8ca7-da45b54fec0e
   projectName: JinKeLED03
   organizationId: yunqi-zhou

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StrategyNodeCtr : ICtr {
     public List<ICtr> ctrs = new List<ICtr>();
@@ -68,7 +69,21 @@ public class StrategyNodeCtr : ICtr {
         foreach (var ctr in ctrs)
         {
             ctr.GetImage().sprite = ValueSheet.StrategyUIsprites[ctrs.IndexOf(ctr)];
+
+            //SetScale(ctr.GetImage(), ValueSheet.StrategyUIsprites[ctrs.IndexOf(ctr)]);
         }
+    }
+
+    private void SetScale(Image img,Sprite comingSprite,float Height = 30.46f) {
+        float _width = Height * comingSprite.rect.width / comingSprite.rect.height;
+
+        Rect rect = img.rectTransform.rect;
+
+        rect.Set(0, 0, _width, Height);
+
+        Debug.Log("width" + _width + "height" + Height);
+
+
     }
 
     public override void ShowAll(float time = 1)

@@ -28,8 +28,8 @@ public class MainVideoNodeCtr : ICtr {
         DealWithUDPMessage.ToChinaMap += hide;
         DealWithUDPMessage.ToMainVideo += show;
 
-        DefaultNodesCtr.HideMainPic += hide;
-        DefaultNodesCtr.ShowMainPic += hide;
+        //DefaultNodesCtr.HideMainPic += hide;
+        //DefaultNodesCtr.ShowMainPic += hide;
     }
 
     private void OnDisable()
@@ -46,8 +46,8 @@ public class MainVideoNodeCtr : ICtr {
         DealWithUDPMessage.ToChinaMap -= hide;
         DealWithUDPMessage.ToMainVideo -= show;
 
-        DefaultNodesCtr.HideMainPic -= hide;
-        DefaultNodesCtr.ShowMainPic -= hide;
+        //DefaultNodesCtr.HideMainPic -= hide;
+        //DefaultNodesCtr.ShowMainPic -= hide;
     }
 
     public void CheckIsFinish() {
@@ -77,7 +77,7 @@ public class MainVideoNodeCtr : ICtr {
     public void hide()
     {
         HideAll();
-
+        SoundMangager.instance.PlayBGM();
     }
 
     public override void HideAll(float time = 1)

@@ -30,6 +30,8 @@ public class SoundMangager : MonoBehaviour {
         DealWithUDPMessage.ToChinaMap += Select;
         DealWithUDPMessage.ToMainVideo += Select;
 
+        DealWithUDPMessage.ToMainVideo += StopBGM;
+
     }
 
     private void OnDisable()
@@ -46,7 +48,7 @@ public class SoundMangager : MonoBehaviour {
         DealWithUDPMessage.ToChinaMap -= Select;
         DealWithUDPMessage.ToMainVideo -= Select;
 
-
+        DealWithUDPMessage.ToMainVideo -= StopBGM;
     }
 
 
