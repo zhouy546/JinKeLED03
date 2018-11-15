@@ -100,17 +100,17 @@ public class DealWithUDPMessage : MonoBehaviour {
                 }
                 else if (dataTest == "10008")
                 {
-                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+                    OverriderCameraMove.instance.Go(7, ValueSheet.ID_Node_keyValuePairs);
 
                 }
                 else if (dataTest == "10009")
                 {
-                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+                    OverriderCameraMove.instance.Go(8, ValueSheet.ID_Node_keyValuePairs);
 
                 }
                 else if (dataTest == "10010")
                 {
-                    OverriderCameraMove.instance.Go(6, ValueSheet.ID_Node_keyValuePairs);
+                    OverriderCameraMove.instance.Go(9, ValueSheet.ID_Node_keyValuePairs);
 
                 }
             }

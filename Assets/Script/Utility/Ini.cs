@@ -80,7 +80,7 @@ public class Ini : MonoBehaviour {
             List<Sprite> sp = new List<Sprite>();
             string path = "/UI/Description/" + i.ToString() + "/";
             // Debug.Log(path);
-            yield return GetSpriteListFromStreamAsset(path, "jpg", sp);
+            yield return GetSpriteListFromStreamAsset(path, "png", sp);
 
             ValueSheet.DescriptionkeyValuePairs.Add(i, sp);
         }
@@ -94,6 +94,11 @@ public class Ini : MonoBehaviour {
     {
         string path = "/UI/MainPage/";
         yield return GetSpriteListFromStreamAsset(path, "jpg", ValueSheet.MainUIsprites);
+        //foreach (var item in ValueSheet.MainUIsprites)
+        //{
+        //    Debug.Log(item.name);
+        //}
+       
     }
 
     IEnumerator ReadIntroUIsprites()

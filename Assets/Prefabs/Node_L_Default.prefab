@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: "01\u4E00\u5FC3.mp4"
+  m_VideoPath: "01\u6E56\u5357\u957F\u6C99\u79D1\u6280\u65B0\u57CE.mp4"
   m_AutoOpen: 1
   m_AutoStart: 0
   m_Loop: 0
@@ -713,7 +713,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 24.50001, y: -12}
-  m_SizeDelta: {x: 38.4, y: 24}
+  m_SizeDelta: {x: 38.2, y: 24}
   m_Pivot: {x: 1, y: 0}
 --- !u!224 &224274084100281928
 RectTransform:
@@ -732,7 +732,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -21.1, y: -8.5}
-  m_SizeDelta: {x: 34, y: 20}
+  m_SizeDelta: {x: 35, y: 20}
   m_Pivot: {x: 1, y: 0}
 --- !u!224 &224405261075187504
 RectTransform:
