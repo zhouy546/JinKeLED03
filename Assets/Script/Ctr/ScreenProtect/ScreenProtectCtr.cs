@@ -11,7 +11,10 @@ public class ScreenProtectCtr : ICtr {
         base.initialization();
         foreach (ICtr ctr in ctrs)
         {
+            float time =Random.Range(0.5f, 5f);
             ctr.initialization();
+           StartCoroutine( ctr.TriggerFloating(time));
+            
         }
 
         if (instance == null) {

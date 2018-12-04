@@ -51,8 +51,10 @@ public class MainVideoNodeCtr : ICtr {
     }
 
     public void CheckIsFinish() {
-        Debug.Log("finished");
+      //  Debug.Log("finished");
         hide();
+
+        SendUPDData.instance.udp_Send("10000", "192.168.1.32", 29020);
     }
 
 

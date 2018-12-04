@@ -46,6 +46,10 @@ public class ICtr : MonoBehaviour {
         }
     }
 
+    public virtual IEnumerator TriggerFloating(float time) {
+        yield return new WaitForSeconds(time);
+    }
+
     public virtual void ShowOne(ICtr ctr) {
 
     }

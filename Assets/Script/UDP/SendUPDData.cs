@@ -57,15 +57,15 @@ public class SendUPDData : MonoBehaviour {
      
     }
 
-    public void SentMessage() {
-        udpData_str = CreateMessage();
+    //public void SentMessage() {
+    //    udpData_str = CreateMessage();
 
-        _sSend = udpData_str;
+    //    _sSend = udpData_str;
 
-        udp_Send(_sSend, m_ip, m_ReceivePort);
+    //    udp_Send(_sSend, m_ip, m_ReceivePort);
 
        
-    }
+    //}
 
 
 
