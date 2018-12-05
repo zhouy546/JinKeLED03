@@ -8,6 +8,9 @@ public class CreateUI : MonoBehaviour {
     public GameObject NodeL_Default;
     public GameObject NodeR_Default;
 
+    public GameObject NodeL_TwoRing;
+    public GameObject NodeR_TwoRing;
+
     public GameObject SunNode_Intro;
     public GameObject SunNode_YeWuMoXing;
     public GameObject SunNode_Co;
@@ -36,12 +39,29 @@ public class CreateUI : MonoBehaviour {
             if (j % 2 == 0)
             {
                 Vector3 pos = new Vector3(-20, 16.3f, j * ValueSheet.NodeDistance);
-                CreateObject<NodeCtr>(NodeL_Default, j, pos,  parent[0], ValueSheet.nodeCtrs);
+                if (j == 0 || j == 2)
+                {
+                    CreateObject<NodeCtr>(NodeL_TwoRing, j, pos, parent[0], ValueSheet.nodeCtrs);
+                }
+                else {
+                    CreateObject<NodeCtr>(NodeL_Default, j, pos, parent[0], ValueSheet.nodeCtrs);
+                }
+
+              
             }
             else
             {
                 Vector3 pos = new Vector3(20, 16.3f, j * ValueSheet.NodeDistance);
-                CreateObject<NodeCtr>(NodeR_Default, j, pos,  parent[0], ValueSheet.nodeCtrs);
+
+                if (j == 1)
+                {
+                    CreateObject<NodeCtr>(NodeR_TwoRing, j, pos, parent[0], ValueSheet.nodeCtrs);
+                }
+                else
+                {
+                    CreateObject<NodeCtr>(NodeR_Default, j, pos, parent[0], ValueSheet.nodeCtrs);
+                }
+
             }
             ValueSheet.ID_Node_keyValuePairs.Add(ValueSheet.NodeList[j].ID, ValueSheet.nodeCtrs[j].gameObject);
         }
