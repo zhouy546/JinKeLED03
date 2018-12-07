@@ -20,11 +20,11 @@ public class LocationNodeCtr : ICtr {
         animator.SetBool("Show", true);
     }
 
-    public override IEnumerator TriggerFloating(float time)
+    public override IEnumerator show(float time)
     {
         yield return new WaitForSeconds(time);
 
-        animator.SetBool("TriggerFloating", true);
+        animator.SetBool("Show", true);
 
     }
 }

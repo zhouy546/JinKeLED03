@@ -65,6 +65,7 @@ public class OverriderCameraMove : MonoBehaviour {
 
     public void toStrategy(int id) {
         cameraMove();
+        BottomBarCtr.instance.updateBar(id, 4f);
         //alueSheet.strategyNodeCtr[0].ShowOne(ValueSheet.strategyNodeCtr[0].ctrs[id]);
         RotateTo(Vector3.zero);
         MoveTo(ValueSheet.strategyNodeCtr[0].GetPos(id), .5f);
@@ -103,12 +104,15 @@ public class OverriderCameraMove : MonoBehaviour {
     }
     public void toIntro(int id) {
         cameraMove();
+        BottomBarCtr.instance.updateBar(id,2f);
         RotateTo(Vector3.zero);
         MoveTo(IntroNodeCtr.instance.GetTargetCamPos(id), .5f);
     }
 
     public void Go(int ID, Dictionary<int, GameObject> ID_Node_keyValuePairs)
     {
+
+        BottomBarCtr.instance.updateBar(ID,(float)ValueSheet.NodeList.Count);
 
         cameraMove();
         LeanTween.cancel(this.gameObject);

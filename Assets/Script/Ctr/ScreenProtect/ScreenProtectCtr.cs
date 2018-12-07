@@ -5,15 +5,20 @@ using UnityEngine;
 public class ScreenProtectCtr : ICtr {
     public static ScreenProtectCtr instance;
     public List<ICtr> ctrs = new List<ICtr>();
+    public ICtr logoCtr;
     public Transform CameratransformPos;
 	// Use this for initialization
 	public override void initialization() {
         base.initialization();
+        logoCtr.initialization();
+        logoCtr.ShowAll();
+
+
         foreach (ICtr ctr in ctrs)
         {
-            float time =Random.Range(0.5f, 5f);
+            float time =Random.Range(0.5f, 1f);
             ctr.initialization();
-           StartCoroutine( ctr.TriggerFloating(time));
+           StartCoroutine( ctr.show(time));
             
         }
 
@@ -66,10 +71,7 @@ public class ScreenProtectCtr : ICtr {
 
     public override void ShowAll(float time = 1)
     {
-        foreach (ICtr ctr in ctrs)
-        {
-            ctr.ShowAll();
-        }
+        showAnim();
     }
 
     public override void HideAll(float time = 1)
@@ -78,5 +80,20 @@ public class ScreenProtectCtr : ICtr {
         {
             ctr.HideAll();
         }
+
+        logoCtr.HideAll();
+    }
+
+
+    private void showAnim() {
+        foreach (ICtr ctr in ctrs)
+        {
+            float time = Random.Range(0.5f,1f);
+           
+            StartCoroutine(ctr.show(time));
+
+        }
+
+        logoCtr.ShowAll();
     }
 }

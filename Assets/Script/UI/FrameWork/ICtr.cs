@@ -50,6 +50,10 @@ public class ICtr : MonoBehaviour {
         yield return new WaitForSeconds(time);
     }
 
+    public virtual IEnumerator show(float time) {
+        yield return new WaitForSeconds(time);
+    }
+
     public virtual void ShowOne(ICtr ctr) {
 
     }
