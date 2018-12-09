@@ -29,7 +29,7 @@ public class DealWithUDPMessage : MonoBehaviour {
     public static Action ToMatching;
     public static Action ToChinaMap;
     public static Action ToMainVideo;
-
+    public static Action<string> PlayMainVideo;
 
 
     public static DealWithUDPMessage instance;
@@ -170,7 +170,17 @@ public class DealWithUDPMessage : MonoBehaviour {
             }
 
             else if (dataTest == "10022") {
-                ToMainVideo();
+                toMainVideo();
+                playMainVideo(ValueSheet.MainVideoUrl);
+            }
+            else if (dataTest == "10023") {
+                toMainVideo();
+                playMainVideo(ValueSheet.Mainvideo2);
+            }
+            else if (dataTest == "10024")
+            {
+                toMainVideo();
+                playMainVideo(ValueSheet.Mainvideo3);
             }
 
         }
@@ -295,6 +305,10 @@ public class DealWithUDPMessage : MonoBehaviour {
 
         isInChinaMap = isInDefaultScreen = isInLogoWell = isInIntro = isInStrategy/* = isInScreenProtect */= isInYeWuMoXing = isInCo = isInMatching = false;
 
+    }
+
+    public static void playMainVideo(string str = " ") {
+        PlayMainVideo?.Invoke(str);
     }
 
 }

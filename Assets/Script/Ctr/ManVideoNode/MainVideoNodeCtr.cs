@@ -27,7 +27,7 @@ public class MainVideoNodeCtr : ICtr {
         DealWithUDPMessage.ToMatching += hide;
         DealWithUDPMessage.ToChinaMap += hide;
         DealWithUDPMessage.ToMainVideo += show;
-
+        DealWithUDPMessage.PlayMainVideo += PlayVideo;
         //DefaultNodesCtr.HideMainPic += hide;
         //DefaultNodesCtr.ShowMainPic += hide;
     }
@@ -45,6 +45,7 @@ public class MainVideoNodeCtr : ICtr {
         DealWithUDPMessage.ToMatching -= hide;
         DealWithUDPMessage.ToChinaMap -= hide;
         DealWithUDPMessage.ToMainVideo -= show;
+        DealWithUDPMessage.PlayMainVideo -= PlayVideo;
 
         //DefaultNodesCtr.HideMainPic -= hide;
         //DefaultNodesCtr.ShowMainPic -= hide;
@@ -93,7 +94,7 @@ public class MainVideoNodeCtr : ICtr {
     {
         animator.SetBool("Show", true);
 
-        PlayVideo(ValueSheet.MainVideoUrl);
+        //PlayVideo(ValueSheet.MainVideoUrl);
     }
 
 }
