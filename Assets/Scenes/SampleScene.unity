@@ -10044,7 +10044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mediaPlayer: {fileID: 1417280457}
   _displayInEditor: 1
-  _scaleMode: 2
+  _scaleMode: 0
   _color: {r: 1, g: 1, b: 1, a: 0}
   _alphaBlend: 0
   _useDepth: 0
