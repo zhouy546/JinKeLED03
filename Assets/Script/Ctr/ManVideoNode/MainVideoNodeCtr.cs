@@ -1,9 +1,12 @@
 ﻿using RenderHeads.Media.AVProVideo;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MainVideoNodeCtr : ICtr {
+
+    //public static Action OnVideFinished;
     public MediaPlayer medialPlayer;
     public Animator animator;
 
@@ -56,7 +59,14 @@ public class MainVideoNodeCtr : ICtr {
         hide();
 
         SendUPDData.instance.udp_Send("10000", "192.168.1.32", 29020);
+
+        DealWithUDPMessage.instance.MessageManage(DealWithUDPMessage.instance.tempstr);
+
     }
+
+    //public static void onvideFinished() {
+    //    OnVideFinished?.Invoke();
+    //}
 
 
 

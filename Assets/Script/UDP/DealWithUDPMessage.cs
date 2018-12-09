@@ -38,6 +38,8 @@ public class DealWithUDPMessage : MonoBehaviour {
     // public static char[] sliceStr;
     private Vector3 CamRotation;
 
+    public string tempstr = "10000";
+
     private static bool isInDefaultScreen,isInLogoWell,isInIntro,isInStrategy,isInYeWuMoXing,isInCo,isInMatching,isInChinaMap;
     //private static bool isInScreenProtect=true;
 
@@ -52,6 +54,8 @@ public class DealWithUDPMessage : MonoBehaviour {
     {
         if (_data != "")
         {
+
+
             dataTest = _data;
 
             Debug.Log(dataTest);
@@ -183,6 +187,10 @@ public class DealWithUDPMessage : MonoBehaviour {
                 playMainVideo(ValueSheet.Mainvideo3);
             }
 
+            if (int.Parse(dataTest) < 10022)
+            {
+                tempstr = dataTest;
+            }
         }
 
     }

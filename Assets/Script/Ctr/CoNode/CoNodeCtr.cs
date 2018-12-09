@@ -38,7 +38,7 @@ public class CoNodeCtr : ICtr {
         DealWithUDPMessage.ToCo += show;
         DealWithUDPMessage.ToMatching += hide;
         DealWithUDPMessage.ToChinaMap += hide;
-        //DealWithUDPMessage.ToMainVideo += hide;
+        DealWithUDPMessage.ToMainVideo += hide;
 
         DefaultNodesCtr.HideMainPic += hide;
         DefaultNodesCtr.ShowMainPic += hide;
@@ -56,7 +56,7 @@ public class CoNodeCtr : ICtr {
         DealWithUDPMessage.ToCo -= show;
         DealWithUDPMessage.ToMatching -= hide;
         DealWithUDPMessage.ToChinaMap -= hide;
-        //DealWithUDPMessage.ToMainVideo -= hide;
+        DealWithUDPMessage.ToMainVideo -= hide;
 
         DefaultNodesCtr.HideMainPic -= hide;
         DefaultNodesCtr.ShowMainPic -= hide;

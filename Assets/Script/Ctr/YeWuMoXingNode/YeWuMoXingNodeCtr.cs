@@ -37,7 +37,7 @@ public class YeWuMoXingNodeCtr : ICtr {
         DealWithUDPMessage.ToCo += hide;
         DealWithUDPMessage.ToMatching += hide;
         DealWithUDPMessage.ToChinaMap += hide;
-        //DealWithUDPMessage.ToMainVideo += hide;
+        DealWithUDPMessage.ToMainVideo += hide;
 
         DefaultNodesCtr.HideMainPic += hide;
         DefaultNodesCtr.ShowMainPic += hide;
@@ -55,7 +55,7 @@ public class YeWuMoXingNodeCtr : ICtr {
         DealWithUDPMessage.ToCo -= hide;
         DealWithUDPMessage.ToMatching -= hide;
         DealWithUDPMessage.ToChinaMap -= hide;
-      // DealWithUDPMessage.ToMainVideo -= hide;
+        DealWithUDPMessage.ToMainVideo -= hide;
 
         DefaultNodesCtr.HideMainPic -= hide;
         DefaultNodesCtr.ShowMainPic -= hide;

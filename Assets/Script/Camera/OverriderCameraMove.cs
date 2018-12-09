@@ -11,6 +11,10 @@ public class OverriderCameraMove : MonoBehaviour {
     public int PerviousID;
     public int TargetID;
 
+    public Transform videoPlayPos;
+
+
+    //public Vector3 tempPos;
 
     public void initializtion(Vector3 defaultpos, Vector3 _targetPos)
     {
@@ -33,7 +37,9 @@ public class OverriderCameraMove : MonoBehaviour {
         DealWithUDPMessage.ToChinaMap += toChinaMap;
         DealWithUDPMessage.ToLogoWell += toLogoWell;
 
+       DealWithUDPMessage.ToMainVideo += toMainVideo;
 
+       // MainVideoNodeCtr.OnVideFinished += goBack;
 
         //DealWithUDPMessage.ToIntro += toIntro;
     }
@@ -47,6 +53,31 @@ public class OverriderCameraMove : MonoBehaviour {
         DealWithUDPMessage.ToCo -= toCo;
         DealWithUDPMessage.ToChinaMap -= toChinaMap;
         DealWithUDPMessage.ToLogoWell -= toLogoWell;
+        DealWithUDPMessage.ToMainVideo -= toMainVideo;
+
+     //   MainVideoNodeCtr.OnVideFinished -= goBack;
+    }
+
+
+    //private void goBack()
+    //{
+    //    MoveTo(tempPos, .5f);
+    //}
+
+    private void toMainVideo()
+    {
+
+
+        MoveToVideoPlayPos();
+    }
+
+
+
+    private void MoveToVideoPlayPos()
+    {
+        cameraMove();
+        RotateTo(Vector3.zero);
+        MoveTo(videoPlayPos.position, .5f);
     }
 
     private void toLogoWell()
