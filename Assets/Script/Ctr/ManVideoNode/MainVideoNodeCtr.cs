@@ -9,7 +9,7 @@ public class MainVideoNodeCtr : ICtr {
     //public static Action OnVideFinished;
     public MediaPlayer medialPlayer;
     public Animator animator;
-
+    private bool isMainVideo;
 
     public override void initialization()
     {
@@ -73,6 +73,7 @@ public class MainVideoNodeCtr : ICtr {
 
     public override void PlayVideo(string str)
     {
+        isMainVideo = true;
         medialPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, str, true);
     }
 
@@ -90,7 +91,13 @@ public class MainVideoNodeCtr : ICtr {
     public void hide()
     {
         HideAll();
-        SoundMangager.instance.PlayBGM();
+
+        if (isMainVideo)
+        {
+            SoundMangager.instance.PlayBGM();
+            isMainVideo = false;
+        }
+        
     }
 
     public override void HideAll(float time = 1)
