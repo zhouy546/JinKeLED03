@@ -16,6 +16,7 @@ public class OverriderCameraMove : MonoBehaviour {
 
     //public Vector3 tempPos;
 
+
     public void initializtion(Vector3 defaultpos, Vector3 _targetPos)
     {
         if (instance == null)
@@ -146,21 +147,47 @@ public class OverriderCameraMove : MonoBehaviour {
         BottomBarCtr.instance.updateBar(ID,(float)ValueSheet.NodeList.Count);
 
         cameraMove();
+
         LeanTween.cancel(this.gameObject);
 
 
-
-        StartCoroutine(MoveToTarget(getRotue(ID, ID_Node_keyValuePairs), .5f, ID));
-
+        StartCoroutine(MoveToTarget(getRotue(ID, ID_Node_keyValuePairs), getGoThroughTime(ID), ID));
     }
+
+
+    private int currentStep;
+    private int perviousStep =10;
+    float getGoThroughTime(int ID) {
+        //Debug.Log(ValueSheet.NodeList.Count);
+        currentStep = ID + 1;
+
+        float time;
+        if (perviousStep != currentStep)
+        {
+            Debug.Log("pervious step : " + perviousStep + "current step : " + currentStep);
+
+           time = 0.5f / (float)Mathf.Abs(perviousStep - currentStep);
+        }
+        else {
+            time = 0f;
+        }
+
+        perviousStep = currentStep;
+
+        Debug.Log(time);
+        return time;
+    }
+
 
     IEnumerator MoveToTarget(List<RotueNode> rotueNodes, float timeEachSetp, int id)
     {
+       // Debug.Log(timeEachSetp);
         TargetID = id;
-       // SoundMangager.instance.GoThrough();
-      //  CanvasMangager.instance.HideCurretTitle();
+        //yield return new WaitForSeconds(timeEachSetp);
+        // SoundMangager.instance.GoThrough();
+        //  CanvasMangager.instance.HideCurretTitle();
         // Debug.Log(rotueNodes.Count+ "rotueNodes 数量");
-      //  BottomBarCtr.instance.UpdateBottomBar(id + 1, ReadJson.NodeList.Count);
+        //  BottomBarCtr.instance.UpdateBottomBar(id + 1, ReadJson.NodeList.Count);
         for (int i = 0; i < rotueNodes.Count; i++)
         {
 
