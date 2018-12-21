@@ -35,6 +35,8 @@ public class ValueSheet : MonoBehaviour {
     public static List<Sprite> ChinaMapUIsprites = new List<Sprite>();
 
     public static List<Node> NodeList = new List<Node>();
+    public static Dictionary<string, int> NodeList_UDP_ID = new Dictionary<string, int>();
+
 
     public static List<Node> Intro_NodeList = new List<Node>();//弃用
 

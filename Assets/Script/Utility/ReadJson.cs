@@ -54,21 +54,21 @@ public class ReadJson : MonoBehaviour {
         for (int i = 0; i < itemDate["information"].Count; i++)
 
         {
-            SetupNodeList(i, ref ValueSheet.NodeList,"information");
+            SetupNodeList(i, ref ValueSheet.NodeList,"information", ref ValueSheet.NodeList_UDP_ID);
 
         }
 
-        for (int i = 0; i < itemDate["Intro"].Count; i++)
+        //for (int i = 0; i < itemDate["Intro"].Count; i++)
 
-        {
-            SetupNodeList(i, ref ValueSheet.Intro_NodeList, "Intro");
-        }
+        //{
+        //    SetupNodeList(i, ref ValueSheet.Intro_NodeList, "Intro");
+        //}
 
-        for (int i = 0; i < itemDate["Strategy"].Count; i++)
-        {
-            SetupNodeList(i, ref ValueSheet.strategy_NodeList, "Strategy");
+        //for (int i = 0; i < itemDate["Strategy"].Count; i++)
+        //{
+        //    SetupNodeList(i, ref ValueSheet.strategy_NodeList, "Strategy");
 
-        }
+        //}
 
 
 
@@ -81,11 +81,12 @@ public class ReadJson : MonoBehaviour {
 
     }
 
-    void SetupNodeList(int i, ref List<Node> nodes,string SectionStr)
+    void SetupNodeList(int i, ref List<Node> nodes,string SectionStr, ref Dictionary<string, int> UDP_ID_dic)
     {
         int id;
         string bigTitle;
         string VideoPath;
+        string Udp;
 
         id = int.Parse(itemDate[SectionStr][i]["id"].ToString());//get id;
 
@@ -93,6 +94,12 @@ public class ReadJson : MonoBehaviour {
 
         VideoPath = itemDate[SectionStr][i]["VideoPath"].ToString();//get video path;
 
-        nodes.Add(new Node(id, bigTitle, VideoPath));
+        Udp = itemDate[SectionStr][i]["udp"].ToString();
+
+        Node temp = new Node(id, bigTitle, VideoPath, Udp);
+
+        nodes.Add(temp);
+
+        UDP_ID_dic.Add(Udp, id);
     }
 }
