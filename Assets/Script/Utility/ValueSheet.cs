@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ValueSheet : MonoBehaviour {
-    public static string MainVideoUrl;
-    public static string Mainvideo2 = "金科产业.mp4";
-    public static string Mainvideo3 = "领导关怀.mp4";
+
+    public static Dictionary<string, string> udp_videoPathDic = new Dictionary<string, string>();
 
     public static float BGMVolume = 0;
 

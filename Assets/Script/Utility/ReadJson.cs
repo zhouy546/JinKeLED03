@@ -58,27 +58,26 @@ public class ReadJson : MonoBehaviour {
 
         }
 
-        //for (int i = 0; i < itemDate["Intro"].Count; i++)
 
-        //{
-        //    SetupNodeList(i, ref ValueSheet.Intro_NodeList, "Intro");
-        //}
-
-        //for (int i = 0; i < itemDate["Strategy"].Count; i++)
-        //{
-        //    SetupNodeList(i, ref ValueSheet.strategy_NodeList, "Strategy");
-
-        //}
 
 
 
  
 
         ValueSheet.BGMVolume = float.Parse(itemDate["Setup"][0]["BGMVolume"].ToString());
-        ValueSheet.MainVideoUrl =itemDate["Setup"][0]["MainVideUrl"].ToString();
 
-      
 
+        for (int i = 0; i < itemDate["video"].Count; i++)
+        {
+            string path;
+            string udp;
+
+            path = itemDate["video"][i]["videoURL"].ToString();
+            udp = itemDate["video"][i]["UDP"].ToString();
+
+            ValueSheet.udp_videoPathDic.Add(udp, path);
+        }
+     
     }
 
     void SetupNodeList(int i, ref List<Node> nodes,string SectionStr, ref Dictionary<string, int> UDP_ID_dic)

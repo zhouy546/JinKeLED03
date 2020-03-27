@@ -33,6 +33,7 @@ public class BottomBarCtr : ICtr {
         DealWithUDPMessage.ToMatching+= Hide;
         DealWithUDPMessage.ToChinaMap+= Hide;
         DealWithUDPMessage.ToMainVideo+= Hide;
+        //DealWithUDPMessage.ToNewScreenProtectLayer += Hide;
 }
 
     private void OnDisable()

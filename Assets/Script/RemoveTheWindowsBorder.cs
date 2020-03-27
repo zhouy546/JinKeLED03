@@ -24,8 +24,10 @@ public class RemoveTheWindowsBorder : MonoBehaviour
     int _Txtheight = 960;
     void Start()
     {
+#if !UNITY_EDITOR
         StartCoroutine("Setposition");
-        StartCoroutine("ReSetposition");
+       // StartCoroutine("ReSetposition");
+#endif
     }
 
     private void Update()
